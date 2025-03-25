@@ -11,7 +11,7 @@ import BalaceInquery from "./pages/BalaceInquery"
 import AccountSate from "./pages/AccountSate"
 import MIniStatement from "./pages/MIniStatement"
 
-
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
