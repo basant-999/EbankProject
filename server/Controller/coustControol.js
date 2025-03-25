@@ -81,7 +81,7 @@ const CustomerLoginData = async(req,res)=>{
       if(!hashPassword){
        return res.status(400).send({msg:"Password Not Match"});
       } 
-      res.status(200).send({Customer,msg:"successfully login"}); 
+      res.status(200).send(Customer); 
   
     } catch (error) {
         res.status(400).send({msg:"Error in Server Side "})
