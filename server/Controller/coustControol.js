@@ -26,9 +26,9 @@ const InsertUserData = async(req,res)=>{
         password:hashPassword
     })
     
-     res.status(200).send({msg:"Your Account Is Open SuccessFully Now You Can Check Your Password On Email"})
+     res.status(200).send({msg:"Your Account Is Open SuccessFully "})
    } catch (error) {
-    res.status(400).send({msg:"Error in Server Side"})
+    res.status(400).send({msg:"Error in Something oops"})
     
    }
    let mailTransporter =
