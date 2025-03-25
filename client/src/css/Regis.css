@@ -1,0 +1,90 @@
+#myformdata {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h3 {
+    text-align: center;
+    color: #007bff;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .mb-3 {
+    margin-bottom: 15px;
+  }
+  
+  form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+   
+   /* Responsive Design  */
+   @media (max-width: 768px) {
+    #myformdata {
+      max-width: 90%;
+      padding: 15px;
+    }
+  
+    form input {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #myformdata {
+      max-width: 95%;
+    }
+  
+    h3 {
+      font-size: 18px;
+    }
+  
+    form label {
+      font-size: 14px;
+    }
+  
+    form input {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 14px;
+      padding: 8px;
+    } 
+  } 
