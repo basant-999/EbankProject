@@ -3,7 +3,7 @@ const CustomerModel = require("../model/coustModel");
 const transactionModel = require ("../model/transactionModel")
 const autoPassword = require("../middleweare/autopass")
 const nodemailer = require("nodemailer");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const otpmodel = require("../model/otpmodel")
  
 
