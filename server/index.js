@@ -14,9 +14,9 @@ app.use(bodyParser.json());
 // Parse incoming requests with urlencoded payloads
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// mongoose.connect(process.env.STRING).then(()=>{
-//     console.log("DB IS CONNECTED");
-// })
+mongoose.connect(process.env.DB_CONNECTION).then(()=>{
+    console.log("DB IS CONNECTED");
+})
 
 app.use("/BankData", CustomerRoute );
 
