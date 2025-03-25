@@ -13,52 +13,58 @@ const InsertUserData = async(req,res)=>{
 
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(myPAss,salt);
-   try {
-    const Customer = await  CustomerModel.create({
-        firstname:firstname,
-        lastname:lastname,
-        email:email,
-        city:city,
-        mobile:mobile,
-        fulladdress:fulladdress,
-        pincode:pincode,
-        statename:statename,
-        password:hashPassword
-    })
-    
-     res.status(200).send({msg:"Your Account Is Open SuccessFully "})
-   } catch (error) {
+    try {
+      let  alredy = await CustomerModel.findOne({email:email})
+      if(alredy){
+        return res.status(400).send({msg:"this email alredy rgister"})
+      }
+      else if(!alredy){
+        let mailTransporter =
+        nodemailer.createTransport(
+            {
+                service: 'gmail',
+                auth: {
+                    user: 'basantkushwaha678@gmail.com',
+                    pass: 'dzvr hmah sohf ylfd'
+                }
+            });
+
+            let mailDetails = {
+              from: 'basantkushwaha678@gmail.com',
+               to : email,
+               subject : "E-Banking registration",
+               text : `Dear ${firstname} ${lastname} Your account successfully created \n Your Password is ${myPAss}`
+          };
+
+          mailTransporter
+          .sendMail(mailDetails,
+              function (err, data) {
+                  if (err) {
+                      console.log('Error Occurs');
+                  } else {
+                      console.log('Email sent successfully');
+                  }
+              });
+
+              const Customer = await  CustomerModel.create({
+                firstname:firstname,
+                lastname:lastname,
+                email:email,
+                city:city,
+                mobile:mobile,
+                fulladdress:fulladdress,
+                pincode:pincode,
+                statename:statename,
+                password:hashPassword
+            })
+      }
+
+      res.status(200).send({msg:"Your Account Is Open SuccessFully "})
+    } catch (error) {
     res.status(400).send({msg:"Error in Something oops"})
+      
+    }
     
-   }
-   let mailTransporter =
-    nodemailer.createTransport(
-        {
-            service: 'gmail',
-            auth: {
-                user: 'basantkushwaha678@gmail.com',
-                pass: 'dzvr hmah sohf ylfd'
-            }
-        }
-    );
-
-let mailDetails = {
-    from: 'basantkushwaha678@gmail.com',
-     to : email,
-     subject : "E-Banking registration",
-     text : `Dear ${firstname} ${lastname} Your account successfully created \n Your Password is ${myPAss}`
-};
-
-     mailTransporter
-    .sendMail(mailDetails,
-        function (err, data) {
-            if (err) {
-                console.log('Error Occurs');
-            } else {
-                console.log('Email sent successfully');
-            }
-        });
-
 }
 
 
