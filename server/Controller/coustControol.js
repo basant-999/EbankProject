@@ -68,13 +68,15 @@ const CustomerLoginData = async(req,res)=>{
     try {
       const Customer = await CustomerModel.findOne({email:email}); 
       if(!Customer){
-        res.status(400).send({msg:"Email Not Found"});
+       return res.status(400).send({msg:"Email Not Found"});
       }
-      const hashPassword = bcrypt.compare(password ,Customer.password )
+      const hashPassword = await bcrypt.compare(password ,Customer.password )
+      // console.log(hashPassword);
       if(!hashPassword){
-        res.status(400).send({msg:"Password Not Match"});
+       return res.status(400).send({msg:"Password Not Match"});
       } 
-      res.status(200).send(Customer); 
+      res.status(200).send({Customer,msg:"successfully login"}); 
+  
     } catch (error) {
         res.status(400).send({msg:"Error in Server Side "})
     }

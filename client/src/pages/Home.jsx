@@ -19,11 +19,11 @@ function Home() {
     const api = `${BASE_URL}/BankData/CustomerLogin`;
     try {
       const response = await axios.post(api, {email:email, password:password});
-      console.log(response.data);
+      console.log(response.Customer);
       toast.success(response.data.msg)
-      localStorage.setItem("username", response.data.firstname+" "+response.data.lastname);
-      localStorage.setItem("email", response.data.email);
-      localStorage.setItem("useid", response.data._id);
+      localStorage.setItem("username", response.data.Customer.firstname+" "+response.data.Customer.lastname);
+      localStorage.setItem("email", response.data.Customer.email);
+      localStorage.setItem("useid", response.data.Customer._id);
       navigate("/dashboard")
     } catch (error) {
      toast.error(error.response.data.msg) 
