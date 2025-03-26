@@ -10,7 +10,7 @@ const otpmodel = require("../model/otpmodel")
 const InsertUserData = async(req,res)=>{
    const {firstname,lastname,email,city,mobile,fulladdress,pincode,statename }=req.body;
     // const myPAss = autoPassword.autoPassword()
-    const myPAss = autoPassword()
+    const myPAss = autoPassword ()
 
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(myPAss,salt);

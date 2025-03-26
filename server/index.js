@@ -24,7 +24,7 @@ app.use("/BankData", CustomerRoute );
 dbConnect.dbConnect();
 
 
-const port = process.env.PORT||8085;
+const port = process.env.PORT||8000;
 app.listen(port,()=>{
     console.log(`Server is running on ${port} port`);
 })
