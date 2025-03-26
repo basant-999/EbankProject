@@ -1,40 +1,11 @@
 
-// import { ToastContainer, toast } from 'react-toastify';
-
-// import React from 'react'
-// import { useNavigate } from 'react-router-dom';
-
-// function Dashboard() {
-//   const navigate = useNavigate();
-
-//    const Logout = ()=>{
-//     localStorage.clear();
-//     toast.success("Your Are Logout Successfully")
-//     navigate("/home")
-
-//    }
-
-//   return (
-//     <>
-//     <h1>Welcome To SBI Bank </h1>
-//     Name:{localStorage.getItem("username")}
-//     Email:{localStorage.getItem("email")}
-//     <button onClick={Logout}>Logout</button>
-//            <ToastContainer />
-    
-    
-//     </>
-//   )
-// }
-
-// export default Dashboard
-
-
 import React, { useEffect } from 'react'
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import {  Row, Col, Card } from "react-bootstrap";
 import { Link, Outlet, useNavigate } from 'react-router-dom';
 import Footer from '../component/Footer';
+import daslogo from "../images/img2.jpeg"
+// import logut from "../images/logoimg.jpeg"
 const Dashboard = () => {
     let username = localStorage.getItem("username")
     let email = localStorage.getItem("email")
@@ -58,7 +29,7 @@ const navigate = useNavigate()
       <Navbar.Toggle aria-controls="navbarSupportedContent" />
       <Navbar.Brand href="#">
       <div id='logoimg'>
-        <img src="https://cdn.pixabay.com/photo/2021/06/27/14/42/money-6369029_640.png" alt="" height="40px" /> <span><h1></h1></span>
+        <img src={daslogo} alt="" style={{borderRadius:"10px", height:"40px"}}/> <span><h1></h1></span>
     </div>
       </Navbar.Brand>
       <Navbar.Collapse id="navbarSupportedContent">

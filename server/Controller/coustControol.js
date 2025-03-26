@@ -9,7 +9,8 @@ const otpmodel = require("../model/otpmodel")
 
 const InsertUserData = async(req,res)=>{
    const {firstname,lastname,email,city,mobile,fulladdress,pincode,statename }=req.body;
-    const myPAss = autoPassword.autoPassword()
+    // const myPAss = autoPassword.autoPassword()
+    const myPAss = autoPassword()
 
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(myPAss,salt);
@@ -76,9 +77,9 @@ const CustomerLoginData = async(req,res)=>{
       if(!Customer){
        return res.status(400).send({msg:"Email Not Found"});
       }
-      const hashPassword = await bcrypt.compare(password ,Customer.password )
+      const matchPassword = await bcrypt.compare(password ,Customer.password )
       // console.log(hashPassword);
-      if(!hashPassword){
+      if(!matchPassword){
        return res.status(400).send({msg:"Password Not Match"});
       } 
       res.status(200).send(Customer); 

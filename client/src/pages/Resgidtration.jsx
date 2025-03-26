@@ -6,7 +6,7 @@ import BASE_URL from '../Config/config';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 import {  useNavigate } from 'react-router-dom';
-// import "../css/Regis.css"
+import "../css/Regis.css"
 
 
 function Registration() {
@@ -35,7 +35,7 @@ const handelInput = (e)=>{
 
   return (
     <>
-             <div id="myformdata"> 
+             <div id="registration"> 
          <h3>  Open Your New Account </h3>
             <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">

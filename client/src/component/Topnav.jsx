@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import logo from "../images/img7.jpeg"
 
 const Topnav = () => {
   return (
@@ -11,7 +12,7 @@ const Topnav = () => {
     <>
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <img src="https://www.shutterstock.com/shutterstock/photos/2098578658/display_1500/stock-photo-west-bangal-india-september-upi-logo-on-phone-screen-stock-image-2098578658.jpg" alt="" height="50px" />
+        <img src={logo} alt="" height="50px" />
         {/* <Navbar.Brand href="#home">Ebank</Navbar.Brand> */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
